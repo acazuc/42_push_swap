@@ -6,14 +6,16 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 17:17:04 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/07 17:25:17 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/07 18:46:08 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <time.h>
 #include "libft/includes/libft.h"
 
 static void shuffle(int *array, size_t n)
 {
+	srand(time(NULL));
 	if (n > 1) 
 	{
 		size_t i;
