@@ -6,7 +6,7 @@
 #    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/02/07 14:35:23 by acazuc           ###   ########.fr        #
+#    Updated: 2016/02/07 16:00:54 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,19 @@ SRCS_PATH = srcs/
 SRCS_NAME = main.c \
 			error_quit.c \
 			parse_args.c \
+			calc_sorted.c \
+			pre_sort.c \
+			sa.c \
+			sb.c \
+			ss.c \
+			pa.c \
+			pb.c \
+			ra.c \
+			rb.c \
+			rr.c \
+			rra.c \
+			rrb.c \
+			rrr.c \
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
 
