@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 16:12:38 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/07 16:14:23 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/07 16:56:50 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	rra(t_env *env)
 
 	if (env->stack_a_size > 1)
 	{
+		env->count++;
 		tmp = env->stack_a[0];
 		i = 0;
 		while (i < env->stack_a_size - 1)
@@ -27,5 +28,6 @@ void	rra(t_env *env)
 			i++;
 		}
 		env->stack_a[env->stack_a_size - 1] = tmp;
+		ft_putstr("\033[35;1mrra ");
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 14:27:16 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/07 16:19:50 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/07 16:45:32 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct	s_env
 	int			sorted_size;
 	int			min;
 	int			max;
+	int			count;
 }				t_env;
 
 #endif
