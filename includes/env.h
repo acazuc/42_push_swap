@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   env.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/07 14:02:22 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/07 14:29:01 by acazuc           ###   ########.fr       */
+/*   Created: 2016/02/07 14:27:16 by acazuc            #+#    #+#             */
+/*   Updated: 2016/02/07 14:28:11 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef ENV_H
+# define ENV_H
 
-int		main(int ac, char **av)
+typedef struct	s_env
 {
-	t_env	*env;
+	int			*stack_a;
+	int			*stack_b;
+}				t_env;
 
-	if (!(env = malloc(sizeof(*env))))
-		return (-1);
-	parse_args(env, ac, av);
-	return (0);
-}
+#endif

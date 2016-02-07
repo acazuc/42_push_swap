@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   prototypes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/07 14:02:22 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/07 14:29:01 by acazuc           ###   ########.fr       */
+/*   Created: 2016/02/07 14:29:29 by acazuc            #+#    #+#             */
+/*   Updated: 2016/02/07 14:35:00 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef PROTOTYPES_H
+# define PROTOTYPES_H
 
-int		main(int ac, char **av)
-{
-	t_env	*env;
+# include "env.h"
 
-	if (!(env = malloc(sizeof(*env))))
-		return (-1);
-	parse_args(env, ac, av);
-	return (0);
-}
+void	parse_args(t_env *env, int ac, char **av);
+void	error_quit(char *str);
+
+#endif

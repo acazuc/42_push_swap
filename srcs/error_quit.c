@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error_quit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acazuc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/07 14:02:22 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/07 14:29:01 by acazuc           ###   ########.fr       */
+/*   Created: 2015/11/29 19:32:12 by acazuc            #+#    #+#             */
+/*   Updated: 2016/02/07 15:08:57 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		main(int ac, char **av)
+void	error_quit(char *error_message)
 {
-	t_env	*env;
-
-	if (!(env = malloc(sizeof(*env))))
-		return (-1);
-	parse_args(env, ac, av);
-	return (0);
+	ft_putstr_fd("\e[91mAn error happened: ", 2);
+	ft_putendl_fd(error_message, 2);
+	ft_putstr_fd("\e[0m", 2);
+	exit(-1);
 }
