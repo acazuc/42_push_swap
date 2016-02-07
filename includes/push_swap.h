@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 14:02:46 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/07 16:21:30 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/07 18:48:43 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,7 @@
 # include "includes.h"
 # include "env.h"
 # include "prototypes.h"
+
+# define PRE_SORT 10
 
 #endif
