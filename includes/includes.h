@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.h                                              :+:      :+:    :+:   */
+/*   includes.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/07 14:27:16 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/07 16:19:50 by acazuc           ###   ########.fr       */
+/*   Created: 2016/02/07 16:21:34 by acazuc            #+#    #+#             */
+/*   Updated: 2016/02/07 16:21:48 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENV_H
-# define ENV_H
+#ifndef INCLUDES_H
+# define INCLUDES_H
 
-typedef struct	s_env
-{
-	int			*stack_a;
-	int			stack_a_size;
-	int			*stack_b;
-	int			stack_b_size;
-	int			*sorted;
-	int			sorted_size;
-	int			min;
-	int			max;
-}				t_env;
+# include <limits.h>
 
 #endif

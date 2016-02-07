@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 14:30:24 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/07 15:22:02 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/07 16:38:51 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,24 @@ static void		fill_stack(int *stack, int ac, char **av)
 	}
 }
 
-void	parse_args(t_env *env, int ac, char **av)
+static void		parse_min_max(t_env *env)
+{
+	int		i;
+
+	env->min = INT_MAX;
+	env->max = INT_MIN;
+	i = 0;
+	while (i < env->stack_a_size)
+	{
+		if (env->stack_a[i] < env->min)
+			env->min = env->stack_a[i];
+		if (env->stack_a[i] > env->max)
+			env->max = env->stack_a[i];
+		i++;
+	}
+}
+
+void			parse_args(t_env *env, int ac, char **av)
 {
 	if (ac == 1)
 		error_quit("Invaliad parameters, nothing to sort");
@@ -80,4 +97,5 @@ void	parse_args(t_env *env, int ac, char **av)
 	env->stack_a_size = ac - 1;
 	env->stack_b_size = 0;
 	fill_stack(env->stack_a, ac, av);
+	parse_min_max(env);
 }
