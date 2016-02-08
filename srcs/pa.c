@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 16:01:02 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/07 16:54:44 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/08 09:59:36 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	pa(t_env *env)
 		env->stack_a[env->stack_a_size] = env->stack_b[env->stack_b_size - 1];
 		env->stack_a_size++;
 		env->stack_b_size--;
-		ft_putstr("\033[31;1mpa ");
+		ft_putstr("\033[31;1mPA ");
 	}
 }

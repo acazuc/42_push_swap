@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 16:04:17 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/07 16:54:41 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/08 09:59:41 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	pb(t_env *env)
 		env->stack_b[env->stack_b_size] = env->stack_a[env->stack_a_size - 1];
 		env->stack_b_size++;
 		env->stack_a_size--;
-		ft_putstr("\033[34;1mpb ");
+		ft_putstr("\033[34;1mPB ");
 	}
 }

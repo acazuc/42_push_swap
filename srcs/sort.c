@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 16:39:55 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/07 19:28:58 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/08 10:00:51 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,23 @@ void	sort(t_env *env)
 	int		dir;
 	int		to;
 	int		i;
+	int		j;
 	int		k;
 
 	i = 0;
 	k = 0;
-	rrb(env);
-	while (i < 10)
+	while (i < env->pre_sort)
 	{
 		dir = 0;
-		from = env->min + (env->max - env->min) / 10. * i;
-		to = env->min + (env->max - env->min) / 10. * (i + 1);
-		while (k < env->sorted_size / 10. * (i + 1))
+		from = env->sorted[(int)(env->sorted_size / (double)env->pre_sort * i)];
+		to = env->sorted[(int)(env->sorted_size / (double)env->pre_sort * (i + 1)) - 1];
+		j = 0;
+		while (j < env->sorted_size / env->pre_sort)
 		{
 			if (env->stack_b[env->stack_b_size - 1] == env->sorted[k])
 			{
 				pa(env);
-				if (dir)
-					rb(env);
-				else
-					rrb(env);
+				j++;
 				k++;
 			}
 			else
@@ -49,13 +47,6 @@ void	sort(t_env *env)
 						|| env->stack_b[env->stack_b_size - 1] > to)
 				{
 					dir = !dir;
-					ft_putstr("\n\n\n");
-					ft_putnbr(env->stack_a_size);
-					ft_putstr("\nStack A:\n");
-					print_a(env);
-					ft_putstr("\nStack B:\n");
-					print_b(env);
-					ft_putstr("\n\n\n");
 					if (dir)
 						rb(env);
 					else
@@ -63,7 +54,7 @@ void	sort(t_env *env)
 				}
 			}
 		}
-		ft_putendl("\n\n\nI++\n\n\n");
 		i++;
 	}
+	pa(env);
 }
