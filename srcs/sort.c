@@ -6,55 +6,60 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 16:39:55 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/08 10:00:51 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/08 11:29:01 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort(t_env *env)
+static void		move(t_env *env, int dir)
 {
-	int		from;
-	int		dir;
-	int		to;
-	int		i;
-	int		j;
-	int		k;
+	if (dir)
+		rb(env);
+	else
+		rrb(env);
+}
 
-	i = 0;
-	k = 0;
-	while (i < env->pre_sort)
+static void		offset(t_env *env, t_sort *s)
+{
+	move(env, s->dir);
+	if (env->stack_b[env->stack_b_size - 1] < s->from
+			|| env->stack_b[env->stack_b_size - 1] > s->to)
 	{
-		dir = 0;
-		from = env->sorted[(int)(env->sorted_size / (double)env->pre_sort * i)];
-		to = env->sorted[(int)(env->sorted_size / (double)env->pre_sort * (i + 1)) - 1];
-		j = 0;
-		while (j < env->sorted_size / env->pre_sort)
+		s->dir = !s->dir;
+		move(env, s->dir);
+	}
+}
+
+static void		place(t_env *env, t_sort *s)
+{
+	pa(env);
+	s->j++;
+	s->k++;
+}
+
+void			sort(t_env *env)
+{
+	t_sort	s;
+
+	s.i = 0;
+	s.k = 0;
+	while (s.i < env->pre_sort)
+	{
+		s.dir = 0;
+		s.from = env->sorted[(int)(env->sorted_size
+				/ (double)env->pre_sort * s.i)];
+		s.to = env->sorted[(int)(env->sorted_size
+				/ (double)env->pre_sort * (s.i + 1)) - 1];
+		s.j = 0;
+		while (s.j < env->sorted_size / env->pre_sort)
 		{
-			if (env->stack_b[env->stack_b_size - 1] == env->sorted[k])
-			{
-				pa(env);
-				j++;
-				k++;
-			}
+			if (env->stack_b[env->stack_b_size - 1] == env->sorted[s.k])
+				place(env, &s);
 			else
-			{
-				if (dir)
-					rb(env);
-				else
-					rrb(env);
-				if (env->stack_b[env->stack_b_size - 1] < from
-						|| env->stack_b[env->stack_b_size - 1] > to)
-				{
-					dir = !dir;
-					if (dir)
-						rb(env);
-					else
-						rrb(env);
-				}
-			}
+				offset(env, &s);
 		}
-		i++;
+		s.i++;
 	}
 	pa(env);
 }

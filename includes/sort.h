@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_quit.c                                       :+:      :+:    :+:   */
+/*   sort.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acazuc <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/29 19:32:12 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/08 11:07:42 by acazuc           ###   ########.fr       */
+/*   Created: 2016/02/08 11:21:44 by acazuc            #+#    #+#             */
+/*   Updated: 2016/02/08 11:23:33 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef SORT_H
+# define SORT_H
 
-void	error_quit(char *error_message)
+typedef struct	s_sort
 {
-	ft_putstr_fd("\033[91mAn error happened: ", 2);
-	ft_putendl_fd(error_message, 2);
-	ft_putstr_fd("\033[0m", 2);
-	exit(-1);
-}
+	int			from;
+	int			dir;
+	int			to;
+	int			i;
+	int			j;
+	int			k;
+}				t_sort;
+
+#endif

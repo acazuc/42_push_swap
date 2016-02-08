@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 15:23:33 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/07 15:50:08 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/08 11:08:40 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void		quick_sort(int *tab, int start, int end)
 	quick_sort(tab, right + 1, end);
 }
 
-void	calc_sorted(t_env *env)
+void			calc_sorted(t_env *env)
 {
 	dup_tab(env);
 	quick_sort(env->sorted, 0, env->sorted_size - 1);
