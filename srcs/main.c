@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 14:02:22 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/09 09:35:30 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/09 09:52:24 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,18 @@ int				main(int ac, char **av)
 	calc_sorted(env);
 	if (!is_sorted(env))
 	{
-		env->pre_sort = env->sorted_size / 40;
-		if (env->pre_sort <= 0)
-			env->pre_sort = 1;
-		if (env->pre_sort > 50)
-			env->pre_sort = 50;
-		pre_sort(env);
-		sort(env);
+		if (env->stack_a_size == 3)
+			sort_3(env);
+		else
+		{
+			env->pre_sort = env->sorted_size / 40;
+			if (env->pre_sort <= 0)
+				env->pre_sort = 1;
+			if (env->pre_sort > 50)
+				env->pre_sort = 50;
+			pre_sort(env);
+			sort(env);
+		}
 		ft_putchar('\n');
 	}
 	ft_putendl("\033[0mA:");
