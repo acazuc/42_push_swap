@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 14:02:22 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/08 11:08:04 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/09 09:35:30 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,11 @@ int				main(int ac, char **av)
 	calc_sorted(env);
 	if (!is_sorted(env))
 	{
-		if (env->sorted_size < 300)
+		env->pre_sort = env->sorted_size / 40;
+		if (env->pre_sort <= 0)
 			env->pre_sort = 1;
-		else
-			env->pre_sort = PRE_SORT;
+		if (env->pre_sort > 50)
+			env->pre_sort = 50;
 		pre_sort(env);
 		sort(env);
 		ft_putchar('\n');
