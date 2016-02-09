@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 14:02:22 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/09 10:10:44 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/09 15:41:24 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ static int		is_sorted(t_env *env)
 
 static void		choose_sort(t_env *env)
 {
+	check_dur(env);
+	if (is_sorted(env))
+	{
+		ft_putchar('\n');
+		return ;
+	}
 	if (env->stack_a_size == 3)
 		sort_3(env);
 	else if (env->stack_a_size == 2)
