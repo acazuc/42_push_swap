@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 15:51:30 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/10 16:54:58 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/10 17:14:34 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int		has_elem_higher_than(t_env *env, int to)
 	i = 0;
 	while (i < env->stack_a_size)
 	{
-		if (env->stack_a[i] >= to)
+		if (env->stack_a[i] > to)
 			return (1);
 		i++;
 	}
@@ -41,12 +41,12 @@ void			pre_sort(t_env *env)
 	i = 0;
 	while (i < env->pre_sort)
 	{
-		to = env->sorted[env->sorted_size - 1 - (int)((env->sorted_size - 1)
-				/ (double)env->pre_sort * (double)(i + 1))];
+		to = env->sorted[(int)((env->sorted_size - 1)
+				/ (double)env->pre_sort * (double)(env->pre_sort - i - 1))];
 		j = 0;
 		while (has_elem_higher_than(env, to))
 		{
-			if (env->stack_a[env->stack_a_size - 1] >= to)
+			if (env->stack_a[env->stack_a_size - 1] > to)
 				push(env, &j);
 			else
 				ra(env);

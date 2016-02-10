@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 14:02:22 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/10 16:51:12 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/10 17:13:18 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,20 @@ static void		choose_sort(t_env *env)
 		else
 		{
 			check_dur(env);
-			env->pre_sort = env->sorted_size / 50;
-			if (env->pre_sort < 1)
-				env->pre_sort = 1;
-			if (env->pre_sort > 50)
-				env->pre_sort = 50;
-			pre_sort(env);
-			ft_putendl("\nA:");
-			print_a(env);
-			ft_putendl("B:");
-			print_b(env);
-			sort(env);
+			if (!is_sorted(env))
+			{
+				env->pre_sort = env->sorted_size / 50;
+				if (env->pre_sort < 1)
+					env->pre_sort = 1;
+				if (env->pre_sort > 50)
+					env->pre_sort = 50;
+				pre_sort(env);
+				ft_putendl("\nA:");
+				print_a(env);
+				ft_putendl("B:");
+				print_b(env);
+				sort(env);
+			}
 		}
 	}
 	ft_putchar('\n');
