@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 14:02:22 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/10 18:47:12 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/10 19:01:55 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ int				main(int ac, char **av)
 	calc_sorted(env);
 	if (!is_sorted(env))
 		choose_sort(env);
-	ft_putendl("\033[0mA:");
+	ft_putendl("\n\033[1;37mStack A:\033[0;37m");
 	print_a(env);
-	ft_putendl("B:");
+	ft_putendl("\033[1;37mStack B:\033[0;37m");
 	print_b(env);
-	ft_putstr("Count number: ");
+	ft_putstr("\033[1;32mCount number: \033[1;37m");
 	ft_putnbr(env->count);
 	ft_putchar('\n');
 	return (0);

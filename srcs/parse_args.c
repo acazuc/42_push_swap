@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 14:30:24 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/10 17:33:54 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/10 18:49:02 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int		valid_args(int ac, char **av)
 		j = 0;
 		while (av[i][j])
 		{
-			if (av[i][j] != '-' && av[i][j] != '+' && (av[i][j] < '0'
+			if (av[i][j] != '-' && (av[i][j] < '0'
 					|| av[i][j] > '9'))
 				return (0);
 			j++;
