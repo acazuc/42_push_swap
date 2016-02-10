@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 14:30:24 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/10 17:22:04 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/10 17:33:54 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static void		parse_min_max(t_env *env)
 void			parse_args(t_env *env, int ac, char **av)
 {
 	if (ac == 1)
-		error_quit("Invaliad parameters, nothing to sort");
+		exit(1);
 	if (!valid_args(ac, av))
 		error_quit("Invalid parameters, only numbers allowed");
 	if (!valid_int(ac, av))

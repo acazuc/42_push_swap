@@ -6,7 +6,7 @@
 #    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/02/10 17:25:13 by acazuc           ###   ########.fr        #
+#    Updated: 2016/02/10 18:01:36 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,9 @@ SRCS_NAME = main.c \
 			pre_sort.c \
 			sort.c \
 			sort_3.c \
+			sort_5.c \
 			print_a.c \
+			is_sorted.c \
 			print_b.c \
 			sa.c \
 			sb.c \

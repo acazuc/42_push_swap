@@ -6,38 +6,22 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 14:02:22 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/10 17:13:18 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/10 18:34:01 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int		is_sorted(t_env *env)
-{
-	int		i;
-
-	i = 0;
-	while (i < env->sorted_size)
-	{
-		if (env->sorted[env->sorted_size - 1 -i] != env->stack_a[i])
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
 static void		choose_sort(t_env *env)
 {
-	ft_putendl("\nA:");
-	print_a(env);
-	ft_putendl("B:");
-	print_b(env);
 	if (!is_sorted(env))
 	{
 		if (env->stack_a_size == 3)
 			sort_3(env);
 		else if (env->stack_a_size == 2)
 			sa(env);
+		else if (env->stack_a_size <= 5)
+			sort_5(env);
 		else
 		{
 			check_dur(env);
@@ -49,10 +33,6 @@ static void		choose_sort(t_env *env)
 				if (env->pre_sort > 50)
 					env->pre_sort = 50;
 				pre_sort(env);
-				ft_putendl("\nA:");
-				print_a(env);
-				ft_putendl("B:");
-				print_b(env);
 				sort(env);
 			}
 		}

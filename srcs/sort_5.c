@@ -1,56 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pre_sort.c                                         :+:      :+:    :+:   */
+/*   sort_5.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/07 15:51:30 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/10 17:45:37 by acazuc           ###   ########.fr       */
+/*   Created: 2016/02/10 17:59:53 by acazuc            #+#    #+#             */
+/*   Updated: 2016/02/10 18:33:40 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void		push(t_env *env, int *j)
-{
-	pb(env);
-	(*j)++;
-}
-
-static int		has_elem_higher_than(t_env *env, int to)
+static void		move(t_env *env, int searched)
 {
 	int		i;
 
 	i = 0;
 	while (i < env->stack_a_size)
 	{
-		if (env->stack_a[i] < to)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-void			pre_sort(t_env *env)
-{
-	int		to;
-	int		i;
-	int		j;
-
-	i = 0;
-	while (i < env->pre_sort)
-	{
-		to = env->sorted[(int)((env->sorted_size - 1)
-				/ (double)env->pre_sort * (double)(i + 1))];
-		j = 0;
-		while (has_elem_higher_than(env, to))
+		if (env->stack_a[i] == searched)
 		{
-			if (env->stack_a[env->stack_a_size - 1] < to)
-				push(env, &j);
+			if (i < env->stack_a_size / 2)
+				rra(env);
 			else
 				ra(env);
+			return ;
 		}
 		i++;
 	}
+}
+
+void			sort_5(t_env *env)
+{
+	int		searched;
+	int		step;
+
+	step = 0;
+	while (env->stack_a_size > 3)
+	{
+		searched = env->sorted[step ? 1 : 0];
+		if (env->stack_a[env->stack_a_size - 1] == searched)
+		{
+			pb(env);
+			step = !step;
+		}
+		else
+			move(env, searched);
+	}
+	sort_3(env);
+	pa(env);
+	pa(env);
 }

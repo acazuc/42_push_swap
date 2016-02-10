@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 09:51:22 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/10 17:08:16 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/10 18:29:45 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	sort_3(t_env *env)
 {
+	if (is_sorted(env))
+		return ;
 	if (env->stack_a[0] < env->stack_a[1]
 		&& env->stack_a[1] > env->stack_a[2]
 		&& env->stack_a[2] < env->stack_a[0])
