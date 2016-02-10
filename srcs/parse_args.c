@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 14:30:24 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/07 16:38:51 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/10 08:45:49 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static void		fill_stack(int *stack, int ac, char **av)
 	i = 1;
 	while (i < ac)
 	{
-		stack[i - 1] = ft_atoi(av[i]);
+		stack[ac - i - 1] = ft_atoi(av[i]);
 		i++;
 	}
 }

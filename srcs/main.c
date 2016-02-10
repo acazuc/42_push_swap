@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 14:02:22 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/09 16:29:08 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/10 08:54:24 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void		choose_sort(t_env *env)
 	else
 	{
 		env->pre_sort = env->sorted_size / 50;
-		if (env->pre_sort <= 0)
+		if (env->pre_sort < 1)
 			env->pre_sort = 1;
 		if (env->pre_sort > 50)
 			env->pre_sort = 50;
