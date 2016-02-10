@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 14:30:24 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/10 08:45:49 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/10 17:22:04 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ void			parse_args(t_env *env, int ac, char **av)
 		error_quit("Invaliad parameters, nothing to sort");
 	if (!valid_args(ac, av))
 		error_quit("Invalid parameters, only numbers allowed");
+	if (!valid_int(ac, av))
+		error_quit("Invalid parametersm only int are allowed");
 	if (has_doublons(ac, av))
 		error_quit("Invalid parameters, doublons aren't allowed");
 	if (!(env->stack_a = malloc(sizeof(*env->stack_a) * (ac - 1))))

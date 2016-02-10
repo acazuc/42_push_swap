@@ -6,7 +6,7 @@
 #    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/02/09 15:40:51 by acazuc           ###   ########.fr        #
+#    Updated: 2016/02/10 17:25:13 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS_PATH = srcs/
 SRCS_NAME = main.c \
 			error_quit.c \
 			parse_args.c \
+			valid_int.c \
 			calc_sorted.c \
 			check_dur.c \
 			pre_sort.c \

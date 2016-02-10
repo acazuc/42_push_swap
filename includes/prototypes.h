@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 14:29:29 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/09 15:40:33 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/10 17:25:28 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 void	parse_args(t_env *env, int ac, char **av);
 void	check_dur(t_env *env);
+int		valid_int(int ac, char **av);
 void	error_quit(char *str);
 void	calc_sorted(t_env *env);
 void	pre_sort(t_env *env);
