@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 14:02:22 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/10 10:05:53 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/10 16:51:12 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int		is_sorted(t_env *env)
 	i = 0;
 	while (i < env->sorted_size)
 	{
-		if (env->sorted[i] != env->stack_a[i])
+		if (env->sorted[env->sorted_size - 1 -i] != env->stack_a[i])
 			return (0);
 		i++;
 	}
@@ -28,25 +28,31 @@ static int		is_sorted(t_env *env)
 
 static void		choose_sort(t_env *env)
 {
-	if (is_sorted(env))
+	ft_putendl("\nA:");
+	print_a(env);
+	ft_putendl("B:");
+	print_b(env);
+	if (!is_sorted(env))
 	{
-		ft_putchar('\n');
-		return ;
-	}
-	if (env->stack_a_size == 3)
-		sort_3(env);
-	else if (env->stack_a_size == 2)
-		sa(env);
-	else
-	{
-		check_dur(env);
-		env->pre_sort = env->sorted_size / 50;
-		if (env->pre_sort < 1)
-			env->pre_sort = 1;
-		if (env->pre_sort > 50)
-			env->pre_sort = 50;
-		pre_sort(env);
-		sort(env);
+		if (env->stack_a_size == 3)
+			sort_3(env);
+		else if (env->stack_a_size == 2)
+			sa(env);
+		else
+		{
+			check_dur(env);
+			env->pre_sort = env->sorted_size / 50;
+			if (env->pre_sort < 1)
+				env->pre_sort = 1;
+			if (env->pre_sort > 50)
+				env->pre_sort = 50;
+			pre_sort(env);
+			ft_putendl("\nA:");
+			print_a(env);
+			ft_putendl("B:");
+			print_b(env);
+			sort(env);
+		}
 	}
 	ft_putchar('\n');
 }
