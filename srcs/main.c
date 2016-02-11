@@ -6,11 +6,22 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 14:02:22 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/11 09:19:46 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/11 09:26:12 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void		real_sort(t_env *env)
+{
+	env->pre_sort = env->sorted_size / 50;
+	if (env->pre_sort < 1)
+		env->pre_sort = 1;
+	if (env->pre_sort > 50)
+		env->pre_sort = 50;
+	pre_sort(env);
+	sort(env);
+}
 
 static void		choose_sort(t_env *env)
 {
@@ -28,15 +39,7 @@ static void		choose_sort(t_env *env)
 				if (env->stack_a_size <= 5)
 					sort_5(env);
 				else
-				{
-					env->pre_sort = env->sorted_size / 50;
-					if (env->pre_sort < 1)
-						env->pre_sort = 1;
-					if (env->pre_sort > 50)
-						env->pre_sort = 50;
-					pre_sort(env);
-					sort(env);
-				}
+					real_sort(env);
 			}
 		}
 	}

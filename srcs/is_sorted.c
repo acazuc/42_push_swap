@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:01:07 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/10 18:01:27 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/11 09:25:17 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		is_sorted(t_env *env)
 	i = 0;
 	while (i < env->sorted_size)
 	{
-		if (env->sorted[env->sorted_size - 1 -i] != env->stack_a[i])
+		if (env->sorted[env->sorted_size - 1 - i] != env->stack_a[i])
 			return (0);
 		i++;
 	}

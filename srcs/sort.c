@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 16:39:55 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/10 17:43:58 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/11 09:26:30 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ void			sort(t_env *env)
 	set_direction(env, &s);
 	while (env->stack_b_size > 0)
 	{
-		if (env->stack_b[env->stack_b_size - 1] == env->sorted[env->sorted_size - 2 - s.k])
+		if (env->stack_b[env->stack_b_size - 1]
+				== env->sorted[env->sorted_size - 2 - s.k])
 			place(env, &s);
 		else
 			move(env, &s);
