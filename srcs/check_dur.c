@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 15:29:37 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/10 17:18:12 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/11 09:23:10 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ static void		check_first_swap(t_env *env)
 {
 	int		i;
 
-	if (env->stack_a_size <= 2)
-		return ;
 	if (env->stack_a[0] != env->sorted[env->sorted_size - 2]
 		|| env->stack_a[1] != env->sorted[env->sorted_size - 1])
 		return ;
@@ -39,8 +37,6 @@ static void		check_last_swap(t_env *env)
 {
 	int		i;
 
-	if (env->stack_a_size <= 2)
-		return ;
 	if (env->stack_a[env->sorted_size - 1] != env->sorted[1]
 			|| env->stack_a[env->sorted_size - 2]
 			!= env->sorted[0])

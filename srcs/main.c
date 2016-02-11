@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 14:02:22 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/10 19:01:55 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/11 09:19:46 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,23 @@ static void		choose_sort(t_env *env)
 			sort_3(env);
 		else if (env->stack_a_size == 2)
 			sa(env);
-		else if (env->stack_a_size <= 5)
-			sort_5(env);
 		else
 		{
 			check_dur(env);
 			if (!is_sorted(env))
 			{
-				env->pre_sort = env->sorted_size / 50;
-				if (env->pre_sort < 1)
-					env->pre_sort = 1;
-				if (env->pre_sort > 50)
-					env->pre_sort = 50;
-				pre_sort(env);
-				sort(env);
+				if (env->stack_a_size <= 5)
+					sort_5(env);
+				else
+				{
+					env->pre_sort = env->sorted_size / 50;
+					if (env->pre_sort < 1)
+						env->pre_sort = 1;
+					if (env->pre_sort > 50)
+						env->pre_sort = 50;
+					pre_sort(env);
+					sort(env);
+				}
 			}
 		}
 	}
