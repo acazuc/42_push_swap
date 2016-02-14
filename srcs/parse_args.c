@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 14:30:24 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/11 09:17:40 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/14 08:59:34 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,18 @@ static int		valid_args(int ac, char **av)
 	return (1);
 }
 
-static int		has_doublons(int ac, char **av)
+static int		has_doublons(t_env *env)
 {
 	int		i;
 	int		j;
 
-	i = 1;
-	while (i < ac)
+	i = 0;
+	while (i < env->stack_a_size)
 	{
-		j = 1;
-		while (j < ac)
+		j = 0;
+		while (j < env->stack_a_size)
 		{
-			if (i != j && !ft_strcmp(av[i], av[j]))
+			if (i != j && env->stack_a[i] == env->stack_a[j])
 				return (1);
 			j++;
 		}
@@ -90,8 +90,6 @@ void			parse_args(t_env *env, int ac, char **av)
 		error_quit("Invalid parameters, only numbers allowed");
 	if (!valid_int(ac, av))
 		error_quit("Invalid parameters, only int are allowed");
-	if (has_doublons(ac, av))
-		error_quit("Invalid parameters, doublons aren't allowed");
 	if (!(env->stack_a = malloc(sizeof(*env->stack_a) * (ac - 1))))
 		error_quit("Failed to malloc stack a");
 	if (!(env->stack_b = malloc(sizeof(*env->stack_b) * (ac - 1))))
@@ -99,5 +97,7 @@ void			parse_args(t_env *env, int ac, char **av)
 	env->stack_a_size = ac - 1;
 	env->stack_b_size = 0;
 	fill_stack(env->stack_a, ac, av);
+	if (has_doublons(env))
+		error_quit("Invalid parameters, doublons aren't allowed");
 	parse_min_max(env);
 }
